@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+      integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="./style.css" />
+
+    <title>Inventory</title>
+  </head>
+  <body>
+    <header>
+      <h1>Inventory Collection</h1>
+    </header>
+    <h1>add new product</h1>
+
+    <form>
+      <input type="text" class="product-input" placeholder="product" />
+      <input type="text" class="amount-input" placeholder="amount" />
+      <input type="text" class="amount-price" placeholder="price" />
+      
+      <div class="select">
+        <select name="todos" class="filter-brand">
+          <option value="unbranded">Unbranded</option>
+          <option value="hp">HP</option>
+          <option value="lenovo">Lenovo</option>
+          <option value="dell">DELL</option>
+        </select>
+      </div>
+
+      <button class="add-button" type="submit">
+        <i class="fa-solid fa-square-plus"></i>
+      </button>
+    </form>
+
+    <table class="product-list">
+      <tr>
+        <th>Product name</th>
+        <th>Brand</th>
+        <th>Amount</th>
+        <th>Price</th>
+        <th>Action</th>
+      </tr>
+    </table>
+
+
+    <table>
+        <tr>
+          <th>Brand Name</th>
+          <th>No of products</th>
+        </tr>
+        <tr>
+            <td>HP</td>
+            <td class="value-hp">0</td>
+        </tr>
+        <tr>
+            <td>DELL</td>
+            <td class="value-dell">0</td>
+        </tr>
+        <tr>
+            <td>Lenovo</td>
+            <td class="value-lenovo">0</td>
+        </tr>
+        <tr>
+            <td>Unbranded</td>
+            <td class="value-unbranded">0</td>
+        </tr>
+        
+        </tr>
+      </table>
+    <script src="./app.js"></script>
+  </body>
+</html>
