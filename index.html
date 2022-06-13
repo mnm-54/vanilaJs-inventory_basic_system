@@ -29,11 +29,11 @@
     <h1>add new product</h1>
 
     <form>
-      <input type="text" class="product-input" placeholder="product" />
-      <input type="text" class="amount-input" placeholder="amount" />
-      <input type="text" class="amount-price" placeholder="price" />
+      <input type="text" class="product-input" placeholder="product" title="Name of Product"/>
+      <input type="text" class="amount-input" placeholder="amount" title="Amount"/>
+      <input type="text" class="amount-price" placeholder="price" title="price"/>
       
-      <div class="select">
+      <div class="select" title="brand name of product">
         <select name="todos" class="filter-brand">
           <option value="unbranded">Unbranded</option>
           <option value="hp">HP</option>
@@ -42,7 +42,7 @@
         </select>
       </div>
 
-      <button class="add-button" type="submit">
+      <button class="add-button" type="submit" title="Add new product">
         <i class="fa-solid fa-square-plus"></i>
       </button>
     </form>

@@ -6,12 +6,8 @@ const productlist = document.querySelector(".product-list");
 const addBtn = document.querySelector(".add-button");
 const brand = document.querySelector(".filter-brand");
 
-// event listeners
-addBtn.addEventListener("click", addProduct);
-productlist.addEventListener("click", productAction);
-
 // functions
-function addProduct(event) {
+let addProduct = (event) => {
   event.preventDefault();
 
   inventoryUpdate(brand.value, amount.value);
@@ -45,16 +41,19 @@ function addProduct(event) {
   const action = document.createElement("td");
 
   const addButton = document.createElement("button");
+  addButton.title = "increment product by 1";
   addButton.innerHTML = `<i class="fa-solid fa-circle-plus"></i>`;
   addButton.classList.add("add-btn");
   action.appendChild(addButton);
   const subButton = document.createElement("button");
+  subButton.title = "decrement product by 1";
   subButton.innerHTML = `<i class="fa-solid fa-circle-minus"></i>`;
   subButton.classList.add("sub-btn");
   action.appendChild(subButton);
   // trash button
   const trashButton = document.createElement("button");
   trashButton.innerHTML = `<i class="fa-solid fa-trash"></i>`;
+  trashButton.title = "Delete element";
   trashButton.classList.add("trash-btn");
   action.appendChild(trashButton);
 
@@ -66,14 +65,16 @@ function addProduct(event) {
   productInput.value = "";
   price.value = "";
   amount.value = "";
-}
+};
 
-function inventoryUpdate(brand, amount) {
+let create_rd = (element, inputElement) => {};
+
+let inventoryUpdate = (brand, amount) => {
   const data = document.querySelector(".value-" + brand);
   data.innerText = parseInt(data.innerText) + parseInt(amount);
-}
+};
 
-function productAction(e) {
+let productAction = (e) => {
   const item = e.target;
   const tbldtata = item.parentElement;
   tblrw = tbldtata.parentElement;
@@ -95,4 +96,8 @@ function productAction(e) {
     tblrw.childNodes[2].innerHTML = currentAmount;
     inventoryUpdate(brandName, -1);
   }
-}
+};
+
+// event listeners
+addBtn.addEventListener("click", addProduct);
+productlist.addEventListener("click", productAction);
