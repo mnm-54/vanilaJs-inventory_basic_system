@@ -32,21 +32,32 @@ let addProduct = (event) => {
   const action = document.createElement("td");
 
   const addButton = document.createElement("button");
-  addButton.title = "increment product by 1";
-  addButton.innerHTML = `<i class="fa-solid fa-circle-plus"></i>`;
-  addButton.classList.add("add-btn");
-  action.appendChild(addButton);
+  create_action_btn(
+    addButton,
+    `<i class="fa-solid fa-circle-plus"></i>`,
+    "increment product by 1",
+    "add-btn",
+    action
+  );
+
   const subButton = document.createElement("button");
-  subButton.title = "decrement product by 1";
-  subButton.innerHTML = `<i class="fa-solid fa-circle-minus"></i>`;
-  subButton.classList.add("sub-btn");
-  action.appendChild(subButton);
+  create_action_btn(
+    subButton,
+    `<i class="fa-solid fa-circle-minus"></i>`,
+    "decrement product by 1",
+    "sub-btn",
+    action
+  );
+
   // trash button
   const trashButton = document.createElement("button");
-  trashButton.innerHTML = `<i class="fa-solid fa-trash"></i>`;
-  trashButton.title = "Delete element";
-  trashButton.classList.add("trash-btn");
-  action.appendChild(trashButton);
+  create_action_btn(
+    trashButton,
+    `<i class="fa-solid fa-trash"></i>`,
+    "Delete element",
+    "trash-btn",
+    action
+  );
 
   productRow.appendChild(action);
 
@@ -64,18 +75,31 @@ let create_td = (element, inputElement, rowElement) => {
   rowElement.appendChild(element);
 };
 
+let create_action_btn = (
+  element,
+  innerValue,
+  title,
+  css_class,
+  parentElement
+) => {
+  element.title = title;
+  element.innerHTML = innerValue;
+  element.classList.add(css_class);
+  parentElement.appendChild(element);
+};
+
 let inventoryUpdate = (brand, amount) => {
-  const data = document.querySelector(".value-" + brand);
+  let data = document.querySelector(".value-" + brand);
   data.innerText = parseInt(data.innerText) + parseInt(amount);
 };
 
 let productAction = (e) => {
-  const item = e.target;
-  const tbldtata = item.parentElement;
+  let item = e.target;
+  let tbldtata = item.parentElement;
   tblrw = tbldtata.parentElement;
 
-  var currentAmount = parseInt(tblrw.childNodes[2].innerHTML);
-  var brandName = tblrw.childNodes[2].classList[1];
+  let currentAmount = parseInt(tblrw.childNodes[2].innerHTML);
+  let brandName = tblrw.childNodes[1].innerHTML;
 
   if (item.classList[0] === "trash-btn") {
     tblrw.remove();
