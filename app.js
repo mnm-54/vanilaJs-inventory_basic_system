@@ -17,25 +17,16 @@ let addProduct = (event) => {
   productRow.classList.add("product");
   // product row values
   const productName = document.createElement("td");
-  productName.innerText = productInput.value;
-  productName.classList.add("product-item");
-  productRow.appendChild(productName);
+  create_td(productName, productInput, productRow);
 
   const productBrand = document.createElement("td");
-  productBrand.innerText = brand.value;
-  productBrand.classList.add("product-item");
-  productRow.appendChild(productBrand);
+  create_td(productBrand, brand, productRow);
 
   const productAmount = document.createElement("td");
-  productAmount.innerText = amount.value;
-  productAmount.classList.add("product-item");
-  productAmount.classList.add(brand.value);
-  productRow.appendChild(productAmount);
+  create_td(productAmount, amount, productRow);
 
   const productPrice = document.createElement("td");
-  productPrice.innerText = price.value;
-  productPrice.classList.add("product-item");
-  productRow.appendChild(productPrice);
+  create_td(productPrice, price, productRow);
 
   // addition subtruction.,
   const action = document.createElement("td");
@@ -67,7 +58,11 @@ let addProduct = (event) => {
   amount.value = "";
 };
 
-let create_rd = (element, inputElement) => {};
+let create_td = (element, inputElement, rowElement) => {
+  element.innerText = inputElement.value;
+  element.classList.add("product-item");
+  rowElement.appendChild(element);
+};
 
 let inventoryUpdate = (brand, amount) => {
   const data = document.querySelector(".value-" + brand);
